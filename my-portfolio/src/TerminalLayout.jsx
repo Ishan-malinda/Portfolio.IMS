@@ -1,8 +1,10 @@
 import React from 'react';
+import BackgroundCanvas from './BackgroundCanvas';
 
 const TerminalLayout = ({ children, activeFile, setActiveFile }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+      <BackgroundCanvas />
       {/* This is the Main "Window" Container */}
       <div className="w-full max-w-5xl bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-lg shadow-2xl overflow-hidden">
         
