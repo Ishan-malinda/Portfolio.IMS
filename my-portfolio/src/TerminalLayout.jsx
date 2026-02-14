@@ -31,9 +31,10 @@ const TerminalLayout = ({ children, activeFile, setActiveFile }) => {
             <h3 className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-3">Explorer</h3>
             <ul className="space-y-2 font-mono text-sm">
               {[
-                { id: 'about_me.txt', icon: '📄', label: 'about_me.txt' },
-                { id: 'projects', icon: '📁', label: 'projects' },
-                { id: 'skills', icon: '📁', label: 'skills' },
+                { id: 'about', icon: '📄', label: 'about_me.txt' },
+                { id: 'resume', icon: '📜', label: 'cv_resume.pdf' },
+                { id: 'projects', icon: '📁', label: 'projects/' },
+                { id: 'links', icon: '🔗', label: 'links.sh' },
                 { id: 'contact', icon: '📧', label: 'contact.md' }
               ].map((item) => (
                 <li 
