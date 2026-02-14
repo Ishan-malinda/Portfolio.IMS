@@ -8,7 +8,8 @@ import {
   FaDiscord, 
   FaYoutube, 
   FaInstagram, 
-  FaEnvelope 
+  FaEnvelope,
+  FaWhatsapp 
 } from 'react-icons/fa';
 
 const ContactSection = () => {
@@ -17,6 +18,13 @@ const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Construct mailto link
+    const subject = `Portfolio Message from ${formData.name}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    const mailtoLink = `mailto:ishanmalindhaims@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    window.location.href = mailtoLink;
     setSubmitted(true);
   };
 
@@ -27,8 +35,8 @@ const ContactSection = () => {
         animate={{ opacity: 1 }} 
         className="text-green-400 font-mono"
       >
-        <p>➜ Message sent successfully!</p>
-        <p>➜ I will get back to you as soon as possible.</p>
+        <p>➜ Opening your email client...</p>
+        <p>➜ If it didn't open, please email directly to ishanmalindhaims@gmail.com</p>
         <button 
           onClick={() => setSubmitted(false)}
           className="mt-4 text-xs text-slate-500 hover:text-teal-400 underline"
@@ -43,7 +51,19 @@ const ContactSection = () => {
     <div className="space-y-6">
       <div className="text-slate-300">
         <p className="text-teal-400 font-bold text-xl mb-4"># Contact Me</p>
-        <p className="mb-4 text-sm">Have a question or want to work together? Drop me a message below.</p>
+        <p className="mb-4 text-sm text-slate-400 font-mono italic">
+          // Have a question or want to work together? Drop me a message below.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <a href="mailto:ishanmalindhaims@gmail.com" className="flex items-center space-x-3 text-slate-400 hover:text-teal-400 transition-colors bg-slate-900/40 p-3 rounded border border-slate-800">
+            <FaEnvelope className="text-xl" />
+            <span className="text-sm font-mono">ishanmalindhaims@gmail.com</span>
+          </a>
+          <a href="https://wa.me/94720382182" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-slate-400 hover:text-teal-400 transition-colors bg-slate-900/40 p-3 rounded border border-slate-800">
+            <FaWhatsapp className="text-xl text-green-500" />
+            <span className="text-sm font-mono">+94 72 038 2182</span>
+          </a>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4 font-mono text-sm max-w-lg">
