@@ -116,19 +116,54 @@ const App = () => {
 
   // 1. About Section
   const about = (
-    <div className="space-y-6">
-      <p className="text-teal-400 font-bold text-2xl"># Who Am I?</p>
-      <div className="space-y-4 text-slate-300 leading-relaxed">
+    <div className="space-y-8">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-6 border-b border-slate-800 pb-8">
+        <div className="w-32 h-32 rounded-lg border-2 border-teal-500 overflow-hidden bg-slate-800 flex-shrink-0 shadow-[0_0_15px_rgba(45,212,191,0.3)]">
+          <div className="w-full h-full flex items-center justify-center text-slate-500 text-xs text-center p-2 font-mono uppercase tracking-tighter">
+            [User Photo]
+          </div>
+        </div>
+        <div className="flex-1 text-center md:text-left">
+          <h1 className="text-teal-400 font-bold text-3xl mb-1">Ishan Malinda</h1>
+          <p className="text-slate-400 font-mono text-sm tracking-widest uppercase">Junior Developer based in <span className="text-white">Sri Lanka 🇱🇰</span></p>
+          <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
+            <span className="bg-teal-500/10 text-teal-400 text-[10px] px-2 py-1 rounded border border-teal-500/20">#MACHINE_LEARNING</span>
+            <span className="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">#SOFTWARE_ENGINEERING</span>
+            <span className="bg-purple-500/10 text-purple-400 text-[10px] px-2 py-1 rounded border border-purple-500/20">#WEB_DESIGN</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-6 text-slate-300 leading-relaxed text-base">
+        <h2 className="text-xl font-bold text-white">Hello there... I'm Ishan.</h2>
         <p>
-          I am an aspiring <span className="text-teal-400 font-bold">Computer Science student</span> with a deep passion for 
-          Web Development and Data Science. I bridge the gap between complex logic and artistic design.
+          I'm a passionate and motivated Computer Science student at the <span className="text-teal-400 font-bold">University of Westminster (IIT)</span> with a strong foundation in 
+          Programming languages, Software development and Problem solving skills.
         </p>
+        
         <p>
-          Currently, I'm focusing on <span className="text-yellow-400">Machine Learning</span> and <span className="text-yellow-400">Data Mining</span> 
-          to build smarter, data-driven applications that solve real-world problems.
+          I’m passionate about <span className="text-yellow-400">Machine learning</span>, <span className="text-yellow-400">Algorithms</span> and creating efficient, user-friendly software solutions. 
+          I am committed to continuous learning through real-world projects and independent exploration.
         </p>
-        <p className="bg-slate-900/50 border-l-4 border-teal-500 p-4 italic text-slate-400">
-          "I believe code is a mix of logic and art. Every line should be as efficient as it is beautiful."
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 font-mono">
+          <div className="bg-slate-900/40 p-4 rounded border border-slate-800 hover:border-teal-500/50 transition-colors">
+            <p className="text-xs text-slate-500 mb-2 uppercase tracking-tighter">// Expertise</p>
+            <ul className="text-xs space-y-1 list-disc list-inside">
+              <li>Web Design and Development</li>
+              <li>Software Engineering & System design</li>
+              <li>Machine Learning & Algorithms</li>
+            </ul>
+          </div>
+          <div className="bg-slate-900/40 p-4 rounded border border-slate-800 hover:border-teal-500/50 transition-colors">
+            <p className="text-xs text-slate-500 mb-2 uppercase tracking-tighter">// Development_Profile</p>
+            <p className="text-sm font-bold text-teal-400 italic">Continuous Learner</p>
+            <p className="text-[10px] text-slate-500 mt-1 uppercase tracking-tighter">Focused on Scalability & Performance</p>
+          </div>
+        </div>
+
+        <p className="text-slate-500 italic border-l-2 border-slate-700 pl-4 py-1 font-mono text-sm">
+          Interested in working with me? <span onClick={() => setActiveFile('contact')} className="text-teal-400 cursor-pointer hover:underline font-bold">./send_message.sh</span>
         </p>
       </div>
     </div>

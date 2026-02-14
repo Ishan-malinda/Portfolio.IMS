@@ -19,7 +19,7 @@ const TerminalLayout = ({ children, activeFile, setActiveFile }) => {
           
           {/* Title */}
           <div className="text-slate-400 text-sm font-mono flex-1 text-center pr-12">
-            developer_portfolio — -zsh — 80x24
+            welcome-to-my-portfolio — -zsh — 80x24
           </div>
         </div>
 
@@ -52,9 +52,15 @@ const TerminalLayout = ({ children, activeFile, setActiveFile }) => {
 
           {/* The Terminal Screen (Where the content goes) */}
           <div className="flex-1 bg-slate-950 p-6 font-mono text-slate-300 overflow-y-auto">
-             {/* We will inject content here later */}
+             {/* Dynamic Command based on active file */}
              <div className="mb-4 text-green-400">
-                ➜  ~ <span className="text-blue-400">whoami</span>
+                ➜  ~ <span className="text-blue-400">
+                  {activeFile === 'about' && 'cat about_me.txt'}
+                  {activeFile === 'resume' && 'open cv_resume.pdf'}
+                  {activeFile === 'projects' && 'ls projects/'}
+                  {activeFile === 'links' && './links.sh'}
+                  {activeFile === 'contact' && 'vim contact.md'}
+                </span>
              </div>
              {children}
              
