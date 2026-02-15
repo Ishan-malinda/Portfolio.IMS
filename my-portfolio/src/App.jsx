@@ -112,7 +112,51 @@ const ContactSection = () => {
 };
 
 const App = () => {
-  const [activeFile, setActiveFile] = useState('about');
+  const [activeFile, setActiveFile] = useState('home');
+
+  // 0. Home Section (Landing Page)
+  const home = (
+    <div className="flex flex-col items-center justify-center py-12 text-center space-y-10">
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="space-y-4"
+      >
+        <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter uppercase">
+          HI, I AM <span className="text-teal-400">ISHAN</span>
+        </h1>
+        <p className="text-slate-400 font-mono tracking-[0.3em] text-sm md:text-base">
+          CREATIVE { '{JUNIOR}' } DEVELOPER
+        </p>
+        <div className="flex items-center justify-center space-x-2 pt-4">
+          <span className="w-2 h-2 bg-teal-500 rounded-full animate-ping"></span>
+          <span className="text-[10px] text-slate-500 font-mono uppercase tracking-widest">_ WAITING FOR COMMAND...</span>
+        </div>
+      </motion.div>
+
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-10 pt-12 border-t border-slate-800/50 w-full max-w-3xl">
+        {[
+          { id: 'about', icon: <span className="text-3xl">ℹ️</span>, label: 'ABOUT' },
+          { id: 'links', icon: <span className="text-3xl">🔗</span>, label: 'LINKS' },
+          { id: 'projects', icon: <span className="text-3xl">💼</span>, label: 'WORK' },
+          { id: 'resume', icon: <span className="text-3xl">📄</span>, label: 'CV / RESUME' },
+          { id: 'contact', icon: <span className="text-3xl">✉️</span>, label: 'CONTACT' }
+        ].map((item) => (
+          <motion.div
+            key={item.id}
+            whileHover={{ y: -10, scale: 1.05 }}
+            onClick={() => setActiveFile(item.id)}
+            className="flex flex-col items-center space-y-3 cursor-pointer group"
+          >
+            <div className="w-16 h-16 bg-slate-900/50 rounded-2xl flex items-center justify-center border border-slate-800 group-hover:border-teal-500/50 group-hover:bg-teal-500/10 transition-all shadow-xl group-hover:shadow-[0_0_30px_rgba(45,212,191,0.1)]">
+              {item.icon}
+            </div>
+            <span className="text-[10px] font-bold text-slate-500 group-hover:text-teal-400 transition-colors uppercase tracking-widest">{item.label}</span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
 
   // 1. About Section
   const about = (
@@ -450,12 +494,13 @@ const App = () => {
 
   const renderContent = () => {
     switch(activeFile) {
+      case 'home': return home;
       case 'about': return about;
       case 'resume': return resume;
       case 'projects': return projects;
       case 'links': return links;
       case 'contact': return <ContactSection />;
-      default: return about;
+      default: return home;
     }
   };
 
