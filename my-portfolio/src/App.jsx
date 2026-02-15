@@ -300,50 +300,103 @@ const App = () => {
 
   // 3. Projects Section
   const projects = (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 overflow-y-auto pr-2 max-h-full pb-10">
       {[
         {
-          title: "Group Collab App",
-          desc: "Built with React & Node.js. Managed via GitHub with custom Wiki integration.",
-          tags: ["React", "Node.js", "GitHub API"],
-          link: "#"
+          title: "REQRUITA",
+          subtitle: "Anti-Cheating Desktop Application",
+          desc: "A dedicated desktop application engineered to provide a secure, distraction-free environment for technical interviews. It transforms standard meetings into locked-down assessment portals enforcing academic integrity.",
+          image: "/projects/reqruita.png",
+          tags: ["Electron", "React 19", "WebRTC", "IPC Bridge", "Vite"],
+          github: "https://github.com/Ishan-malinda/Reqruita-CS80",
+          live: "#",
+          features: [
+            "Kiosk Mode Enforcement using Electron",
+            "Hardware Validation Gate",
+            "Automated Screen Capturing",
+            "Role-based Admin/Interview Dashboards"
+          ]
         },
         {
-          title: "ML Sentiment Analyzer",
-          desc: "A Python-based tool for analyzing social media trends using NLP.",
-          tags: ["Python", "TensorFlow", "Scikit-learn"],
-          link: "#"
-        },
-        {
-          title: "Data Miner Bot",
-          desc: "Automated web scraping and data cleaning pipeline for large datasets.",
-          tags: ["Python", "BeautifulSoup", "Pandas"],
-          link: "#"
-        },
-        {
-          title: "Portfolio Terminal",
-          desc: "An artistic portfolio designed as a macOS-style terminal window.",
-          tags: ["React", "Tailwind", "Framer Motion"],
-          link: "#"
+          title: "TRADE-FLOW",
+          subtitle: "Smart Trading Assistant Platform",
+          desc: "An advanced, data-driven trading ecosystem combining a professional-grade Performance Journal with a comprehensive Learning Management System (LMS) for serious traders.",
+          image: "/projects/tradeflow.png",
+          tags: ["React", "Node.js", "Express", "SQLite", "Recharts"],
+          github: "https://github.com/Ishan-malinda/TradeFlow",
+          live: "#",
+          features: [
+            "Quantitative Strategy Analytics",
+            "Visual Equity Tracking (Recharts)",
+            "Modular LMS Architecture",
+            "RESTful API & SQLite Persistence"
+          ]
         }
       ].map((p, i) => (
         <motion.div 
           key={i}
-          whileHover={{ y: -5, borderColor: 'rgba(20, 184, 166, 0.5)' }}
-          className="border border-slate-700 p-5 rounded bg-slate-900/50 transition-colors flex flex-col justify-between"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.1 }}
+          className="bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-teal-500/50 transition-all group flex flex-col shadow-2xl h-fit"
         >
-          <div>
-            <h4 className="text-teal-400 font-bold text-lg">{p.title}</h4>
-            <p className="text-sm text-slate-400 mt-2 line-clamp-2">{p.desc}</p>
-            <div className="flex flex-wrap gap-2 mt-4">
+          {/* Project Image - Top Aligned */}
+          <div className="w-full aspect-video bg-slate-800 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-60 z-10" />
+            <img 
+              src={p.image} 
+              alt={p.title} 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+            {/* Project Title Overlay on Image (Optional, matching friend's aesthetic) */}
+            <div className="absolute bottom-4 left-4 z-20">
+              <h4 className="text-white font-bold text-xl tracking-tight drop-shadow-lg">{p.title}</h4>
+            </div>
+          </div>
+
+          {/* Project Details */}
+          <div className="p-6 flex flex-col flex-1 space-y-4">
+            <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
+              {p.desc}
+            </p>
+
+            {/* Core Features List */}
+            <div className="space-y-1.5">
+              {p.features.map((f, fi) => (
+                <div key={fi} className="flex items-start text-[10px] text-slate-500 font-mono">
+                  <span className="text-teal-500 mr-2">➜</span>
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Tech Tags */}
+            <div className="flex flex-wrap gap-2 pt-2">
               {p.tags.map(tag => (
-                <span key={tag} className="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded border border-slate-700">
+                <span key={tag} className="text-[9px] bg-slate-950/50 text-teal-400/70 px-2.5 py-1 rounded-md border border-slate-800 font-mono uppercase tracking-tighter">
                   {tag}
                 </span>
               ))}
             </div>
+
+            {/* Action Buttons - Split 50/50 */}
+            <div className="pt-4 flex gap-3 mt-auto">
+              <a 
+                href={p.live}
+                className="flex-1 text-center bg-white/5 hover:bg-white/10 text-white text-xs py-2.5 rounded-lg font-bold transition-all border border-white/10"
+              >
+                Live Site
+              </a>
+              <a 
+                href={p.github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 text-center bg-white/5 hover:bg-white/10 text-white text-xs py-2.5 rounded-lg font-bold transition-all border border-white/10"
+              >
+                Git Repo
+              </a>
+            </div>
           </div>
-          <a href={p.link} className="text-blue-400 text-xs mt-6 block hover:underline font-mono">view_on_github.exe</a>
         </motion.div>
       ))}
     </div>
