@@ -171,45 +171,128 @@ const App = () => {
 
   // 2. CV/Resume Section
   const resume = (
-    <div className="space-y-6 text-slate-300">
-      <p className="text-teal-400 font-bold text-xl mb-4"># Professional Summary</p>
-      
+    <div className="space-y-6 text-slate-300 overflow-y-auto pr-2 max-h-full font-mono text-xs text-justify">
+      <div className="border-b border-slate-800 pb-4 mb-6 text-left">
+        <h1 className="text-teal-400 font-bold text-2xl uppercase tracking-tighter">ISHAN MALINDA</h1>
+        <p className="text-slate-500 mt-1">Near to Church, Anamaduwa | ishanmalindhaims@gmail.com | linkedin.com/in/Ishan_Malinda</p>
+      </div>
+
       <div className="space-y-8">
+        {/* Profile Info */}
         <section>
-          <h3 className="text-purple-400 font-bold underline mb-3 text-lg uppercase tracking-wider">Education</h3>
-          <div className="border-l-2 border-slate-700 pl-4 py-2 hover:border-teal-500 transition-colors">
-            <p className="font-bold text-teal-400">BSc (Hons) in Computer Science</p>
-            <p className="text-xs text-slate-400 italic">2022 - Present</p>
+          <h3 className="text-purple-400 font-bold mb-3 text-sm uppercase tracking-widest">PROFILE INFO</h3>
+          <p className="leading-relaxed text-slate-400 italic">
+            Highly motivated computer science student at University of westminster(IIT) with strong foundation in Programming 
+            languages, System design, Softwere development and Problem solving skills. I’m passionate about Machine learning, 
+            Algorithms, creating efficient user-friendly software solutions with committed to continuous learning through real-
+            world projects and independent exploration. Currently seeking an internship opportunity to strengthen my technical 
+            expertise, collaborate with industry professionals and contribute value to a forward-thinking tech organisation.
+          </p>
+        </section>
+
+        {/* Education */}
+        <section>
+          <h3 className="text-purple-400 font-bold mb-3 text-sm uppercase tracking-widest">EDUCATION</h3>
+          <div className="space-y-4">
+            <div className="text-left">
+              <p className="font-bold text-teal-400">Bsc (Hons) Computer Science | University of Westminster ( IIT Sri Lanka ) - Since 2024</p>
+              <div className="mt-2 space-y-2">
+                <div>
+                  <p className="text-slate-500 uppercase font-bold">Modules (2 year) :</p>
+                  <p className="text-slate-400">Object Oriented Programming, Client - Server Architectures, Database Systems, Software Development Group Project, Algorithms & Data structures, Machine learning & Data mining</p>
+                </div>
+                <div>
+                  <p className="text-slate-500 uppercase font-bold">Modules (1 year) :</p>
+                  <p className="text-slate-400">Mathematics for Computing, Software Development ( Python ), Computer Systems Fundamentals, Software Development II (Java ), Trends in Computer Science, Web Design and Development</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-left">
+              <p className="font-bold text-slate-300">Passed Advanced Level(A/L) in Physical Science (Anamaduwa National College) - Since 2023</p>
+              <p className="text-slate-400">Chemistry - B | Com. Maths - C | Physics - C</p>
+            </div>
+            <div className="text-left">
+              <p className="font-bold text-slate-300">Passed Ordinary Level(O/L) (Anamaduwa National College) - Since 2020</p>
+            </div>
           </div>
         </section>
 
+        {/* Experience / Projects */}
         <section>
-          <h3 className="text-purple-400 font-bold underline mb-3 text-lg uppercase tracking-wider">Skills</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-slate-900/30 p-3 rounded border border-slate-800">
-              <p className="text-teal-400 font-bold mb-1">Frontend</p>
-              <p className="text-sm">React, Tailwind CSS, JavaScript (ES6+), Framer Motion</p>
+          <h3 className="text-purple-400 font-bold mb-3 text-sm uppercase tracking-widest">EXPERIENCE (PROJECTS)</h3>
+          <div className="space-y-6 text-left">
+            <div>
+              <p className="font-bold text-teal-400 uppercase">REQRUITA - Advanced interview monitoring platform</p>
+              <p className="text-slate-500 italic mb-2">Academic project - SDGP (2025-present)</p>
+              <ul className="space-y-1 list-disc list-inside text-slate-400">
+                <li>Architected a cross-platform desktop application for Interviews using Electron and React with Vite, implementing an IPC (Inter-Process Communication) bridge to securely connect the system-level shell with the UI renderer.</li>
+                <li>Developed a high-performance Landing Page and Admin Dashboard using Next.js, TypeScript and Tailwind CSS focusing on a responsive, clean architectural structure for managing large-scale interview data.</li>
+                <li>Engineered a scalable Backend utilizing Node.js and Express.js, integrated with Next.js API routes to handle complex business logic and interview scheduling.</li>
+                <li>Implemented Secure Authentication using JSON Web Tokens (JWT) to manage session-based access control across different user roles (Admin, Interviewer, Interviewee).</li>
+                <li>Designed a Dual-Database Strategy using SQLite for lightweight, local desktop data persistence and MongoDB for centralized, cloud-based storage of interview recordings and analytics.</li>
+                <li>Engineered a Secure Interview Lockdown System that enforces mandatory full-screen mode and utilizes Electron’s window-level event listeners to detect and block application switching.</li>
+                <li>Developed a real-time monitoring engine using WebRTC APIs to facilitate simultaneous, low-latency streams for camera, microphone and screen-sharing validation.</li>
+              </ul>
             </div>
-            <div className="bg-slate-900/30 p-3 rounded border border-slate-800">
-              <p className="text-teal-400 font-bold mb-1">Backend</p>
-              <p className="text-sm">Node.js, Express, MongoDB, SQL</p>
+            <div>
+              <p className="font-bold text-teal-400 uppercase">Trade-Flow: Smart Trading Assistant Platform</p>
+              <p className="text-slate-500 italic mb-2">Individual project (2025 - present)</p>
+              <ul className="space-y-1 list-disc list-inside text-slate-400">
+                <li>Architected a comprehensive Trading Journal and Analytics Dashboard using React and Vite, featuring real-time equity charts, performance heatmaps and a modular "Evaluation Panel" for quantitative strategy analysis.</li>
+                <li>Developed a Multi-Module Learning Management System (LMS) with a structured "Academy" and "Foundations" section, utilizing a centralized data architecture to manage curriculum across Technical Analysis, Risk Management, and Psychology.</li>
+                <li>Engineered a Secure Backend Infrastructure with Node.js and Express.js, implementing a clean controller-service-route pattern to handle complex operations for trade journaling and user management.</li>
+                <li>Implemented a Secure Payment Processing System by creating dedicated API routes to handle financial transactions, ensuring seamless integration between the user's subscription status and premium platform features.</li>
+                <li>Designed a Scalable Database Schema using SQLite (via better-sqlite3), optimizing data persistence for high-frequency trade entries, user progress tracking in the Academy, and secure authentication logs.</li>
+                <li>Developed a Robust Authentication System using JSON Web Tokens (JWT) and bcrypt for password hashing, protected by custom middleware to enforce secure access to the Journal and Academy dashboards.</li>
+                <li>Integrated Interactive Data Visualization using Recharts to transform raw trading data into actionable insights, including profit calendars, statistics cards and multi-axis performance graphs.</li>
+              </ul>
             </div>
-            <div className="bg-slate-900/30 p-3 rounded border border-slate-800">
-              <p className="text-teal-400 font-bold mb-1">Data Science</p>
-              <p className="text-sm">Python, ML, Data Mining, Pandas, TensorFlow</p>
+          </div>
+        </section>
+
+        {/* Technical Skills */}
+        <section>
+          <h3 className="text-purple-400 font-bold mb-3 text-sm uppercase tracking-widest">TECHNICAL SKILLS</h3>
+          <div className="space-y-2 text-slate-400 text-left">
+            <p><span className="text-teal-400">Front-end & Core :</span> HTML, Tailwind CSS, JavaScript, React.js, Electron.js, Type-Script, JavaFx</p>
+            <p><span className="text-teal-400">Back-end & DataBase :</span> Java, Python, Node.js, Express.js, Rest API, MySQL, MongoDB, PostgreSQL</p>
+            <p><span className="text-teal-400">Tools & Design :</span> Git & Github actions, Draw.io, Figma, Notion, Click-up, AWS, ORMs</p>
+          </div>
+        </section>
+
+        {/* Soft Skills */}
+        <section>
+          <h3 className="text-purple-400 font-bold mb-3 text-sm uppercase tracking-widest">SOFT SKILLS</h3>
+          <p className="text-slate-400 text-left">Time Management, Critical Thinking, Problem Solving, Analysis Skills</p>
+        </section>
+
+        {/* Reference */}
+        <section>
+          <h3 className="text-purple-400 font-bold mb-3 text-sm uppercase tracking-widest">REFERENCE</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+            <div className="text-slate-400">
+              <p className="font-bold text-teal-400">Mr Pushpika Prasad Liyanaarachchii</p>
+              <p className="text-[10px]">Senior Lecturer</p>
+              <p className="text-[10px]">Informatics Institute of Technology (IIT), Sri Lanka</p>
+              <p className="text-[10px]">Mobile : +94 76 149 08 60</p>
+              <p className="text-[10px]">Email : Parad.I@iit.ac.lk</p>
             </div>
-            <div className="bg-slate-900/30 p-3 rounded border border-slate-800">
-              <p className="text-teal-400 font-bold mb-1">Tools</p>
-              <p className="text-sm">Git, GitHub, Docker, Gemini AI, VS Code</p>
+            <div className="text-slate-400">
+              <p className="font-bold text-teal-400">Mr A.N.M. Sampath</p>
+              <p className="text-[10px]">Head of Procurement</p>
+              <p className="text-[10px]">HEINEKEN LANKA LIMITED</p>
+              <p className="text-[10px]">Mobile : +94 77 354 62 50</p>
+              <p className="text-[10px]">Email : Nishara.milinda@dblanka.com</p>
             </div>
           </div>
         </section>
 
         <a 
-          href="#" 
-          className="inline-block bg-teal-600/20 text-teal-400 border border-teal-500/50 px-6 py-3 rounded hover:bg-teal-600/30 transition-all font-bold"
+          href="/CV_Resume.pdf" 
+          download="Ishan_Malinda_CV.pdf"
+          className="inline-block bg-teal-600/20 text-teal-400 border border-teal-500/50 px-6 py-3 rounded hover:bg-teal-600/30 transition-all font-bold text-sm"
         >
-          📄 Download Full CV (PDF)
+          ./download_full_cv.sh
         </a>
       </div>
     </div>
