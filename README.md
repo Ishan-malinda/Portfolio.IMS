@@ -7,13 +7,13 @@
 ### 💻 Interactive Terminal Shell
 A robust command-line interface allowing users to navigate the portfolio using standard Unix-like commands.
 * **File System Navigation**: `cd`, `ls`, `cat` to explore directories and read files (About, Resume, Projects).
-* **System Control**: `reboot`, `clear`, `exit`, and `whoami`.
+* **System Control**: `reboot`, `clear`, `exit` and `whoami`.
 * **App Launching**: Open applications directly via command line (e.g., `open game`).
 
 ### 🪟 Desktop Environment
 * **Window Management**: Draggable and minimizing windows powered by **Framer Motion**.
-* **Taskbar & Start Menu**: Functional system tray with real-time clock, audio controls, and application switching.
-* **Desktop Icons**: Quick access to core applications like Terminal, Notes, and Games.
+* **Taskbar & Start Menu**: Functional system tray with real-time clock, audio controls and application switching.
+* **Desktop Icons**: Quick access to core applications like Terminal, Notes and Games.
 
 ### 🎮 Built-in Applications
 1.  **Terminal**: The core navigation hub.
