@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import BackgroundCanvas from './BackgroundCanvas';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaHome, FaPowerOff, FaSync, FaMusic, FaVolumeUp, FaVolumeMute, FaTerminal } from 'react-icons/fa';
+import profilePic from './assets/profile.png';
 
 const TerminalLayout = ({ 
   children, 
@@ -156,7 +157,9 @@ const TerminalLayout = ({
                 className="absolute bottom-14 left-4 w-72 bg-slate-900/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-2 overflow-hidden z-[150]"
               >
                 <div className="p-5 border-b border-white/5 mb-2 flex items-center space-x-4 text-left bg-gradient-to-br from-teal-500/10 to-transparent">
-                  <div className="w-12 h-12 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-lg shadow-inner">IM</div>
+                  <div className="w-12 h-12 rounded-full border border-teal-500/30 overflow-hidden flex items-center justify-center shadow-inner">
+                    <img src={profilePic} alt="Ishan Malinda" className="w-full h-full object-cover" />
+                  </div>
                   <div>
                     <p className="text-sm text-white font-bold tracking-tight">Ishan Malinda</p>
                     <p className="text-[10px] text-teal-500/70 uppercase font-mono font-bold tracking-tighter">System Administrator</p>

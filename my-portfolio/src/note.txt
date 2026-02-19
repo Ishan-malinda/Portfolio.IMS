@@ -1,5 +1,4 @@
 Have to Add the Links , In links.sh 
 In projects have to add links for Live website buttons 
-have to update a profile photo
-sholud add more projects
+sholud add more projects [DONE: FocusForge Added]
 sending mail adjustmet of contact and feedback

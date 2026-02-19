@@ -19,6 +19,7 @@ import {
   FaFileAlt,
   FaHome
 } from 'react-icons/fa';
+import profilePic from './assets/profile.png';
 
 // --- SUB-COMPONENTS ---
 
@@ -492,9 +493,7 @@ const App = () => {
     <div className="space-y-8 max-w-3xl">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8 border-b border-white/5 pb-8 text-center md:text-left">
         <div className="w-28 h-28 rounded-2xl border border-teal-500/30 overflow-hidden bg-slate-900 flex-shrink-0 shadow-2xl shadow-teal-500/10 rotate-3 group hover:rotate-0 transition-transform duration-500 mx-auto md:mx-0">
-          <div className="w-full h-full flex items-center justify-center text-slate-600 text-[10px] text-center p-4 font-mono uppercase leading-relaxed italic">
-            [User Photo]
-          </div>
+          <img src={profilePic} alt="Ishan Malinda" className="w-full h-full object-cover" />
         </div>
         <div className="flex-1 pt-2">
           <h1 className="text-white font-bold text-3xl mb-2 tracking-tighter font-sans uppercase">Ishan Malinda</h1>
@@ -544,7 +543,7 @@ const App = () => {
     <div className="space-y-6 text-slate-300 pr-2 font-mono text-xs overflow-y-auto max-h-full text-left">
       <div className="border-b border-white/10 pb-4 mb-8">
         <h1 className="text-teal-400 font-bold text-3xl uppercase tracking-tighter">ISHAN MALINDA</h1>
-        <p className="text-slate-500 mt-2 text-[10px] uppercase tracking-widest leading-loose">Near to Church, Anamaduwa | ishanmalindhaims@gmail.com | linkedin.com/in/Ishan_Malinda</p>
+        <p className="text-slate-500 mt-2 text-[10px] uppercase tracking-widest leading-loose">Near to Church, Anamaduwa | ishanmalindhaims@gmail.com | linkedin.com/in/ishan-malinda-414501318/</p>
       </div>
       <div className="space-y-10 leading-relaxed text-justify">
         <section>
@@ -599,6 +598,16 @@ const App = () => {
                 <li>Integrated Interactive Data Visualization using Recharts for profit/performance tracking.</li>
               </ul>
             </div>
+            <div>
+              <p className="font-bold text-teal-400 uppercase tracking-tight">FocusForge: High-Performance Productivity Tool</p>
+              <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2026 - present)</p>
+              <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
+                <li>Architected a three-tier desktop application using Electron, React, and Express.</li>
+                <li>Developed precision focus timer with real-time tracking and non-distracting UI.</li>
+                <li>Engineered local persistent storage using JSON File System for session logs.</li>
+                <li>Implemented automated session history tracking with timestamps and duration analysis.</li>
+              </ul>
+            </div>
           </div>
         </section>
         <section>
@@ -641,6 +650,15 @@ const App = () => {
           tags: ["React", "Express", "SQLite", "Recharts"],
           github: "https://github.com/Ishan-malinda/TradeFlow",
           features: ["Strategy Analytics", "Equity Charts", "LMS Architecture"]
+        },
+        {
+          title: "FOCUSFORGE",
+          subtitle: "Productivity Tool",
+          desc: "High-performance desktop productivity application designed for deep focus and progress tracking with a minimalist UI.",
+          image: "/projects/focusforge.png",
+          tags: ["Electron", "React", "Express", "Node.js"],
+          github: "https://github.com/Ishan-malinda/FocusForge",
+          features: ["Precision Timer", "Session History", "Desktop Native"]
         }
       ].map((p, i) => (
         <motion.div 
@@ -684,7 +702,7 @@ const App = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-16 max-w-2xl">
         {[
-          { label: 'LinkedIn', icon: <FaLinkedin />, url: 'https://linkedin.com/in/Ishan_Malinda', color: 'hover:text-blue-500' },
+          { label: 'LinkedIn', icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/ishan-malinda-414501318/', color: 'hover:text-blue-500' },
           { label: 'GitHub', icon: <FaGithub />, url: 'https://github.com/Ishan-malinda', color: 'hover:text-white' },
           { label: 'Twitter', icon: <FaTwitter />, url: '#', color: 'hover:text-sky-400' },
           { label: 'Discord', icon: <FaDiscord />, url: '#', color: 'hover:text-indigo-400' },
