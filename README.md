@@ -19,7 +19,7 @@ A robust command-line interface allowing users to navigate the portfolio using s
 1.  **Terminal**: The core navigation hub.
 2.  **Notes**: A feedback tool that integrates with the user's email client.
 3.  **HackerRun.exe**: A mini-game testing reflexes and precision.
-4.  **Portfolio Modules**: Dedicated UI windows for Projects, Resume, and Contact forms.
+4.  **Portfolio Modules**: Dedicated UI windows for Projects, Resume and Contact forms.
 
 ## 🛠️ Tech Stack
 
