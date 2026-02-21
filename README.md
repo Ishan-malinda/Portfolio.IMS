@@ -1,6 +1,6 @@
 # Ishan_OS Portfolio 🖥️🚀
 
-**Ishan_OS** is an immersive, interactive web portfolio designed to simulate a modern desktop operating system. Built with **React 19** and **Vite**, it features a fully functional ZSH-style terminal, window management system, and mini-applications, offering a unique way to explore my professional background and technical skills.
+**Ishan_OS** is an immersive, interactive web portfolio designed to simulate a modern desktop operating system. Built with **React 19** and **Vite**, it features a fully functional ZSH-style terminal, window management system and mini-applications, offering a unique way to explore my professional background and technical skills.
 
 ## 🌟 System Features
 
