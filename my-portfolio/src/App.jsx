@@ -39,7 +39,11 @@ const TerminalWindow = ({
   const terminalEndRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
-  const handleTerminalClick = () => {
+  const handleTerminalClick = (e) => {
+    // If the target is an input, textarea, or a link, don't hijack focus
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.closest('a')) {
+      return;
+    }
     inputRef.current?.focus();
     setActiveWindow('terminal');
   };
@@ -228,6 +232,7 @@ const App = () => {
   const [openApps, setOpenApps] = useState(['terminal']);
   const [activeWindow, setActiveWindow] = useState('terminal');
   const [isMinimized, setIsMinimized] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   // Desktop Icons Component
   const DesktopIcons = () => (
@@ -261,9 +266,40 @@ const App = () => {
   // 1. Notes / Feedback App
   const NotesApp = () => {
     const [note, setNote] = useState('');
+    const [submitted, setSubmitted] = useState(false);
     const sendFeedback = () => {
       window.location.href = `mailto:ishanmalindhaims@gmail.com?subject=Portfolio Feedback&body=${encodeURIComponent(note)}`;
+      setSubmitted(true);
     };
+
+    if (submitted) {
+      return (
+        <div className="bg-yellow-500/10 backdrop-blur-2xl p-6 rounded-xl border border-yellow-500/30 w-80 shadow-2xl pointer-events-auto text-center">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-yellow-400 font-bold flex items-center text-xs font-mono uppercase">
+              <FaStickyNote className="mr-2" /> Thank_You.txt
+            </h3>
+            <button 
+              onClick={(e) => { e.stopPropagation(); setOpenApps(openApps.filter(a => a !== 'notes')); }}
+              className="text-yellow-500/50 hover:text-yellow-500 text-lg leading-none"
+            >
+              ×
+            </button>
+          </div>
+          <p className="text-yellow-100/80 text-xs font-mono mb-6 leading-relaxed">
+            ➜ Data received.<br/>
+            Thank you for your feedback!<br/>
+            It helps me improve the system.
+          </p>
+          <button
+            onClick={() => setSubmitted(false)}
+            className="w-full bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-400 border border-yellow-500/50 py-2 rounded font-bold text-[10px] transition-all uppercase tracking-widest font-mono"
+          >
+            ./write_another.sh
+          </button>
+        </div>
+      );
+    }
     return (
       <div className="bg-yellow-500/10 backdrop-blur-2xl p-6 rounded-xl border border-yellow-500/30 w-80 shadow-2xl pointer-events-auto">
         <div className="flex justify-between items-center mb-4">
@@ -362,6 +398,67 @@ const App = () => {
     );
   };
 
+  const ProjectDetailWindow = ({ project, onClose }) => {
+    if (!project) return null;
+    return (
+      <div className="bg-slate-900/95 backdrop-blur-3xl border border-teal-500/30 rounded-2xl w-[90vw] md:w-[600px] shadow-2xl overflow-hidden pointer-events-auto flex flex-col max-h-[80vh]">
+        <div className="bg-slate-800/80 p-4 flex items-center justify-between border-b border-white/5">
+          <div className="flex items-center space-x-3">
+             <div className="w-3 h-3 rounded-full bg-teal-500/50"></div>
+             <h3 className="text-teal-400 font-bold text-xs uppercase tracking-widest font-mono">
+                Project_Detail.bin — {project.title}
+             </h3>
+          </div>
+          <button onClick={onClose} className="text-slate-500 hover:text-white text-xl">×</button>
+        </div>
+        <div className="overflow-y-auto p-6 custom-scrollbar">
+          <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 mb-6 font-mono relative bg-black/40 flex items-center justify-center group">
+            <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-2 uppercase tracking-tighter">{project.title}</h2>
+          <p className="text-teal-500/70 text-[10px] font-mono mb-4 uppercase tracking-[0.3em] font-bold">{project.subtitle}</p>
+          <div className="space-y-6 text-slate-300">
+            <div>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-2 font-mono">// Description</p>
+              <p className="text-sm leading-relaxed text-slate-400">{project.desc}</p>
+            </div>
+            <div>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-2 font-mono">// System_Capabilities</p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px] font-mono">
+                {project.features.map(f => (
+                  <li key={f} className="flex items-center space-x-2">
+                    <span className="text-teal-500">➜</span>
+                    <span className="text-slate-400">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 bg-teal-500 text-slate-900 text-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-teal-400 transition-all font-mono"
+              >
+                View Site
+              </a>
+              <a 
+                href={project.github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 bg-white/5 text-white border border-white/10 text-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all font-mono"
+              >
+                Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+
   const ContactSection = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [submitted, setSubmitted] = useState(false);
@@ -369,18 +466,22 @@ const App = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       const subject = `Portfolio Message from ${formData.name}`;
-      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      const mailtoLink = `mailto:ishanmalindhaims@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      const mailtoLink = `mailto:ishanmalindhaims@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailtoLink;
       setSubmitted(true);
     };
   
     if (submitted) {
       return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-green-400 font-mono">
-          <p>➜ Opening your email client...</p>
-          <p className="text-slate-500 text-xs mt-2 uppercase">Check your draft folder if it didn't open</p>
-          <button onClick={() => setSubmitted(false)} className="mt-6 text-xs text-teal-400 hover:underline font-bold uppercase tracking-widest">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-teal-400 font-mono space-y-4">
+          <p className="text-xl font-bold uppercase tracking-tighter">➜ Transmission Successful</p>
+          <p className="text-slate-400 text-sm leading-relaxed">
+            Thank you for reaching out! I've prepared the email draft for you. <br/>
+            Please ensure you click "Send" in your email client to finalize the message.
+          </p>
+          <p className="text-slate-500 text-[10px] uppercase">Connection status: Waiting for response...</p>
+          <button onClick={() => setSubmitted(false)} className="mt-6 text-xs text-teal-400 hover:text-white border border-teal-500/30 px-4 py-2 rounded-lg hover:bg-teal-500/10 transition-all font-bold uppercase tracking-widest">
             ./reset_form.sh
           </button>
         </motion.div>
@@ -454,7 +555,7 @@ const App = () => {
     <div className="flex flex-col items-center justify-center py-10 text-center space-y-10">
       <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tighter uppercase font-sans">
-          HI, I AM <span className="text-teal-400 underline decoration-teal-500/30 underline-offset-8">ISHAN</span>
+          HI, I AM <span className="text-teal-400 underline decoration-teal-500/30 underline-offset-8">ISHAN MALINDA</span>
         </h1>
         <p className="text-slate-500 font-mono tracking-[0.4em] text-[10px] md:text-xs">
           CREATIVE { '{JUNIOR}' } DEVELOPER
@@ -640,6 +741,7 @@ const App = () => {
           image: "/projects/reqruita.png",
           tags: ["Electron", "React", "WebRTC", "Node.js"],
           github: "https://github.com/Ishan-malinda/Reqruita-CS80",
+          liveUrl: "https://reqruita.com/",
           features: ["Hardware Gate", "Kiosk Mode", "Real-time Monitoring"]
         },
         {
@@ -649,6 +751,7 @@ const App = () => {
           image: "/projects/tradeflow.png",
           tags: ["React", "Express", "SQLite", "Recharts"],
           github: "https://github.com/Ishan-malinda/TradeFlow",
+          liveUrl: "https://github.com/Ishan-malinda/TradeFlow",
           features: ["Strategy Analytics", "Equity Charts", "LMS Architecture"]
         },
         {
@@ -658,6 +761,7 @@ const App = () => {
           image: "/projects/focusforge.png",
           tags: ["Electron", "React", "Express", "Node.js"],
           github: "https://github.com/Ishan-malinda/FocusForge",
+          liveUrl: "https://github.com/Ishan-malinda/FocusForge",
           features: ["Precision Timer", "Session History", "Desktop Native"]
         }
       ].map((p, i) => (
@@ -682,9 +786,12 @@ const App = () => {
               {p.tags.map(tag => <span key={tag} className="text-[8px] bg-black/40 text-teal-400/60 px-2 py-1 rounded border border-white/5 font-mono uppercase">{tag}</span>)}
             </div>
             <div className="pt-4 flex gap-3">
-              <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 text-[10px] py-2.5 rounded-xl font-bold transition-all border border-teal-500/20 uppercase tracking-widest font-mono">
-                Source Code
-              </a>
+              <button 
+                onClick={() => setSelectedProject(p)}
+                className="flex-1 text-center bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 text-[10px] py-2.5 rounded-xl font-bold transition-all border border-teal-500/20 uppercase tracking-widest font-mono"
+              >
+                View Details
+              </button>
             </div>
           </div>
         </motion.div>
@@ -704,10 +811,10 @@ const App = () => {
         {[
           { label: 'LinkedIn', icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/ishan-malinda-414501318/', color: 'hover:text-blue-500' },
           { label: 'GitHub', icon: <FaGithub />, url: 'https://github.com/Ishan-malinda', color: 'hover:text-white' },
-          { label: 'Twitter', icon: <FaTwitter />, url: '#', color: 'hover:text-sky-400' },
-          { label: 'Discord', icon: <FaDiscord />, url: '#', color: 'hover:text-indigo-400' },
-          { label: 'YouTube', icon: <FaYoutube />, url: '#', color: 'hover:text-red-500' },
-          { label: 'Instagram', icon: <FaInstagram />, url: '#', color: 'hover:text-pink-500' }
+          { label: 'Twitter', icon: <FaTwitter />, url: 'https://x.com/ishan_malindha', color: 'hover:text-sky-400' },
+          { label: 'Discord', icon: <FaDiscord />, url: 'https://discord.gg/585qpzaA', color: 'hover:text-indigo-400' },
+          { label: 'YouTube', icon: <FaYoutube />, url: 'https://www.youtube.com/@Strategic_Club1', color: 'hover:text-red-500' },
+          { label: 'Instagram', icon: <FaInstagram />, url: 'https://www.instagram.com/wf_ims/', color: 'hover:text-pink-500' }
         ].map((link, i) => (
           <motion.a key={i} href={link.url} target="_blank" rel="noopener noreferrer" whileHover={{ y: -8, scale: 1.15 }} className="flex flex-col items-center group cursor-pointer">
             <div className={`text-6xl text-slate-700 transition-all duration-300 ${link.color} group-hover:drop-shadow-[0_0_20px_rgba(45,212,191,0.3)]`}>
@@ -799,6 +906,25 @@ const App = () => {
               className={`pointer-events-auto absolute ${activeWindow === 'game' ? 'z-50' : 'z-20'}`}
             >
               <HackerGame />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {/* Project Details Window */}
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm pointer-events-auto"
+              onClick={() => setSelectedProject(null)}
+            >
+              <div onClick={(e) => e.stopPropagation()}>
+                <ProjectDetailWindow 
+                  project={selectedProject} 
+                  onClose={() => setSelectedProject(null)} 
+                />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

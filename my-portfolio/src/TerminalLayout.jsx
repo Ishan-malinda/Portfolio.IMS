@@ -3,6 +3,7 @@ import BackgroundCanvas from './BackgroundCanvas';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaHome, FaPowerOff, FaSync, FaMusic, FaVolumeUp, FaVolumeMute, FaTerminal } from 'react-icons/fa';
 import profilePic from './assets/profile.png';
+import backgroundMusic from './assets/music.mp3';
 
 const TerminalLayout = ({ 
   children, 
@@ -26,6 +27,12 @@ const TerminalLayout = ({
     const timer = setInterval(() => {
       setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
     }, 1000);
+    
+    // Set initial volume
+    if (audioRef.current) {
+      audioRef.current.volume = 0.4;
+    }
+    
     return () => clearInterval(timer);
   }, []);
 
@@ -67,7 +74,7 @@ const TerminalLayout = ({
         ref={audioRef}
         loop
         autoPlay
-        src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" 
+        src={backgroundMusic} 
       />
       
       {/* Main OS Area (Desktop) */}
