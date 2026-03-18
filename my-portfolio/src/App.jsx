@@ -435,14 +435,16 @@ const App = () => {
               </ul>
             </div>
             <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row gap-4">
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex-1 bg-teal-500 text-slate-900 text-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-teal-400 transition-all font-mono"
-              >
-                View Site
-              </a>
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-teal-500 text-slate-900 text-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-teal-400 transition-all font-mono"
+                >
+                  View Site
+                </a>
+              )}
               <a 
                 href={project.github} 
                 target="_blank" 
@@ -700,6 +702,26 @@ const App = () => {
               </ul>
             </div>
             <div>
+              <p className="font-bold text-teal-400 uppercase tracking-tight">Bank Loan Approval & Max Amount Prediction</p>
+              <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2026 - present)</p>
+              <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
+                <li>Developed a dual-case study ML system for loan approval classification and maximum amount regression.</li>
+                <li>Implemented KNN, Naïve Bayes, and Logistic Regression with GridSearchCV, achieving 0.97 recall for risky loans.</li>
+                <li>Performed extensive EDA and data cleaning (outlier removal, mean imputation) on complex financial datasets.</li>
+                <li>Optimized model performance using stratified splits and feature engineering for imbalanced data.</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-bold text-teal-400 uppercase tracking-tight">Macro-Economic Sentiment Tracker</p>
+              <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2026 - present)</p>
+              <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
+                <li>Engineered a 4-tier data pipeline using Python and Playwright for automated scraping of economic calendars.</li>
+                <li>Implemented sentiment logic to compare "Actual" vs "Forecast" results for live market scoring.</li>
+                <li>Developed a high-performance frontend dashboard using Next.js and Tailwind CSS with glassmorphism aesthetics.</li>
+                <li>Integrated Supabase for centralized PostgreSQL storage and Node.js for a secure API bridge.</li>
+              </ul>
+            </div>
+            <div>
               <p className="font-bold text-teal-400 uppercase tracking-tight">FocusForge: High-Performance Productivity Tool</p>
               <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2026 - present)</p>
               <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
@@ -734,6 +756,26 @@ const App = () => {
   const projectsSection = (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10 text-left">
       {[
+        {
+          title: "BANK LOAN PREDICTION",
+          subtitle: "Risk & Amount Analysis",
+          desc: "Machine learning system for predicting loan approvals and maximum eligible amounts using classification and regression models.",
+          image: "/projects/bank-loan.png",
+          tags: ["Python", "Scikit-Learn", "Pandas", "Plotly"],
+          github: "https://github.com/Ishan-malinda/Machine-Learning-Algorithm-for-Bank-Loan-System-Prediction",
+          liveUrl: null,
+          features: ["Risk Classification", "Regression Pricing", "Hyperparameter Tuning"]
+        },
+        {
+          title: "MACRO SENTIMENT",
+          subtitle: "Automated Sentiment Analysis",
+          desc: "A fully automated 4-tier data pipeline that scrapes high-impact economic data, calculates live market sentiment, and displays it on a premium dashboard.",
+          image: "/projects/macro-sentiment.png",
+          tags: ["Python", "Playwright", "Supabase", "Next.js", "Node.js"],
+          github: "https://github.com/Ishan-malinda/Macro-Economic-Sentiment-Tracker",
+          liveUrl: "https://macro-economic-sentiment-tracker.vercel.app/",
+          features: ["4-Tier Pipeline", "Automated Scraper", "Live Sentiment Meter"]
+        },
         {
           title: "REQRUITA",
           subtitle: "Anti-Cheating Portal",
