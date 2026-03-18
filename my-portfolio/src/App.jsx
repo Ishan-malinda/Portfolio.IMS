@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import TerminalLayout from './TerminalLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -35,9 +35,58 @@ const TerminalWindow = ({
 }) => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([]);
+  const [dimensions, setDimensions] = useState({ width: 900, height: 550 });
+  const isResizing = useRef(false);
+  const resizeDir = useRef(null);
+  const startPos = useRef({ x: 0, y: 0 });
+  const startDims = useRef({ width: 0, height: 0 });
   const inputRef = useRef(null);
   const terminalEndRef = useRef(null);
   const scrollContainerRef = useRef(null);
+
+  const handleResizeStart = useCallback((e, direction) => {
+    e.preventDefault();
+    e.stopPropagation();
+    isResizing.current = true;
+    resizeDir.current = direction;
+    startPos.current = { x: e.clientX, y: e.clientY };
+    startDims.current = { ...dimensions };
+    document.body.style.cursor = direction === 'right' ? 'ew-resize' : direction === 'bottom' ? 'ns-resize' : 'nwse-resize';
+    document.body.style.userSelect = 'none';
+  }, [dimensions]);
+
+  useEffect(() => {
+    const handleResizeMove = (e) => {
+      if (!isResizing.current) return;
+      const dx = e.clientX - startPos.current.x;
+      const dy = e.clientY - startPos.current.y;
+      const dir = resizeDir.current;
+      const maxW = window.innerWidth * 0.95;
+      const maxH = window.innerHeight * 0.90;
+      setDimensions(prev => ({
+        width: (dir === 'right' || dir === 'corner')
+          ? Math.min(maxW, Math.max(400, startDims.current.width + dx))
+          : prev.width,
+        height: (dir === 'bottom' || dir === 'corner')
+          ? Math.min(maxH, Math.max(300, startDims.current.height + dy))
+          : prev.height,
+      }));
+    };
+    const handleResizeEnd = () => {
+      if (isResizing.current) {
+        isResizing.current = false;
+        resizeDir.current = null;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+      }
+    };
+    window.addEventListener('mousemove', handleResizeMove);
+    window.addEventListener('mouseup', handleResizeEnd);
+    return () => {
+      window.removeEventListener('mousemove', handleResizeMove);
+      window.removeEventListener('mouseup', handleResizeEnd);
+    };
+  }, []);
 
   const handleTerminalClick = (e) => {
     // If the target is an input, textarea, or a link, don't hijack focus
@@ -127,8 +176,8 @@ const TerminalWindow = ({
       className={`fixed inset-0 pointer-events-none flex items-center justify-center p-4 pb-20 ${activeWindow === 'terminal' ? 'z-40' : 'z-20'}`}
     >
       <div 
-        className="w-full max-w-4xl pointer-events-auto bg-slate-900/95 backdrop-blur-2xl border border-slate-700/50 rounded-xl shadow-2xl overflow-hidden flex flex-col"
-        style={{ height: '550px' }}
+        className="pointer-events-auto bg-slate-900/95 backdrop-blur-2xl border border-slate-700/50 rounded-xl shadow-2xl overflow-hidden flex flex-col relative"
+        style={{ width: dimensions.width, height: dimensions.height, maxWidth: '95vw', maxHeight: '90vh' }}
       >
         {/* Window Title Bar */}
         <div className="bg-slate-800/80 p-3 flex items-center border-b border-slate-700/50 select-none cursor-move flex-shrink-0">
@@ -219,6 +268,29 @@ const TerminalWindow = ({
               />
             </div>
           </div>
+        </div>
+
+        {/* Resize Handles */}
+        {/* Right edge */}
+        <div
+          onMouseDown={(e) => handleResizeStart(e, 'right')}
+          className="absolute top-0 right-0 w-1.5 h-full cursor-ew-resize hover:bg-teal-500/20 transition-colors z-50"
+        />
+        {/* Bottom edge */}
+        <div
+          onMouseDown={(e) => handleResizeStart(e, 'bottom')}
+          className="absolute bottom-0 left-0 h-1.5 w-full cursor-ns-resize hover:bg-teal-500/20 transition-colors z-50"
+        />
+        {/* Bottom-right corner */}
+        <div
+          onMouseDown={(e) => handleResizeStart(e, 'corner')}
+          className="absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize z-50 group"
+        >
+          <svg className="w-3 h-3 absolute bottom-0.5 right-0.5 text-slate-600 group-hover:text-teal-400 transition-colors" viewBox="0 0 10 10" fill="currentColor">
+            <circle cx="8" cy="8" r="1.5" />
+            <circle cx="4" cy="8" r="1.5" />
+            <circle cx="8" cy="4" r="1.5" />
+          </svg>
         </div>
       </div>
     </motion.div>
@@ -757,6 +829,26 @@ const App = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10 text-left">
       {[
         {
+          title: "TRADE-FLOW",
+          subtitle: "Smart Analytics",
+          desc: "Data-driven trading ecosystem combining performance journals with professional analytics and LMS curriculum.",
+          image: "/projects/tradeflow.png",
+          tags: ["React", "Express", "SQLite", "Recharts"],
+          github: "https://github.com/Ishan-malinda/TradeFlow",
+          liveUrl: "https://trade-flow-v2.vercel.app/",
+          features: ["Strategy Analytics", "Equity Charts", "LMS Architecture"]
+        },
+        {
+          title: "REQRUITA",
+          subtitle: "Anti-Cheating Portal",
+          desc: "Secure, distraction-free environment for technical interviews. Engineers hardware validation gates and kiosk enforcement.",
+          image: "/projects/reqruita.png",
+          tags: ["Electron", "React", "WebRTC", "Node.js"],
+          github: "https://github.com/Ishan-malinda/Reqruita-CS80",
+          liveUrl: "https://reqruita.com/",
+          features: ["Hardware Gate", "Kiosk Mode", "Real-time Monitoring"]
+        },
+        {
           title: "BANK LOAN PREDICTION",
           subtitle: "Risk & Amount Analysis",
           desc: "Machine learning system for predicting loan approvals and maximum eligible amounts using classification and regression models.",
@@ -777,26 +869,6 @@ const App = () => {
           features: ["4-Tier Pipeline", "Automated Scraper", "Live Sentiment Meter"]
         },
         {
-          title: "REQRUITA",
-          subtitle: "Anti-Cheating Portal",
-          desc: "Secure, distraction-free environment for technical interviews. Engineers hardware validation gates and kiosk enforcement.",
-          image: "/projects/reqruita.png",
-          tags: ["Electron", "React", "WebRTC", "Node.js"],
-          github: "https://github.com/Ishan-malinda/Reqruita-CS80",
-          liveUrl: "https://reqruita.com/",
-          features: ["Hardware Gate", "Kiosk Mode", "Real-time Monitoring"]
-        },
-        {
-          title: "TRADE-FLOW",
-          subtitle: "Smart Analytics",
-          desc: "Data-driven trading ecosystem combining performance journals with professional analytics and LMS curriculum.",
-          image: "/projects/tradeflow.png",
-          tags: ["React", "Express", "SQLite", "Recharts"],
-          github: "https://github.com/Ishan-malinda/TradeFlow",
-          liveUrl: "https://github.com/Ishan-malinda/TradeFlow",
-          features: ["Strategy Analytics", "Equity Charts", "LMS Architecture"]
-        },
-        {
           title: "FOCUSFORGE",
           subtitle: "Productivity Tool",
           desc: "High-performance desktop productivity application designed for deep focus and progress tracking with a minimalist UI.",
@@ -812,7 +884,7 @@ const App = () => {
           className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-teal-500/30 transition-all group flex flex-col shadow-2xl h-fit"
         >
           <div className="aspect-video relative overflow-hidden border-b border-white/10">
-            <img src={p.image} alt={p.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+            <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-all duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-90" />
             <div className="absolute bottom-4 left-4">
               <h4 className="text-white font-bold text-xl tracking-tighter uppercase font-mono">{p.title}</h4>
