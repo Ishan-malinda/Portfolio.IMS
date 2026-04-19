@@ -686,25 +686,25 @@ const App = () => {
           <span className="w-8 h-px bg-teal-500/30 mr-3 hidden md:block"></span> Hello_World.sh
         </h2>
         <p>
-          I'm a passionate and motivated Computer Science student at the <span className="text-teal-400 font-bold border-b border-teal-500/20">University of Westminster (IIT)</span> with a strong foundation in Programming languages, Software development and Problem solving skills.
+          I'm a dedicated Computer Science student at the <span className="text-teal-400 font-bold border-b border-teal-500/20">University of Westminster</span> with a passion for building scalable, production-grade applications.
         </p>
         <p>
-          I’m passionate about <span className="text-yellow-400/80 font-bold">Machine learning</span>, <span className="text-yellow-400/80 font-bold">Algorithms</span> and creating efficient, user-friendly software solutions. I am committed to continuous learning through real-world projects and independent exploration.
+          My expertise spans <span className="text-yellow-400/80 font-bold">Full-Stack Development</span>, <span className="text-yellow-400/80 font-bold">DevOps</span>, and <span className="text-yellow-400/80 font-bold">Machine Learning</span>. I focus on creating efficient, secure, and user-centric software solutions using modern ecosystems.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 font-mono">
           <div className="bg-white/5 p-5 rounded-2xl border border-white/5 hover:border-teal-500/20 transition-all group">
-            <p className="text-[9px] text-slate-600 mb-3 uppercase tracking-widest font-bold">// Expertise</p>
+            <p className="text-[9px] text-slate-600 mb-3 uppercase tracking-widest font-bold">// Core_Focus</p>
             <ul className="text-[11px] space-y-2 list-none text-slate-300">
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-teal-500/40 rounded-full mr-3 group-hover:bg-teal-500 transition-colors"></span>Web Design and Development</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-teal-500/40 rounded-full mr-3 group-hover:bg-teal-500 transition-colors"></span>Software Engineering & System design</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-teal-500/40 rounded-full mr-3 group-hover:bg-teal-500 transition-colors"></span>Machine Learning & Algorithms</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-teal-500/40 rounded-full mr-3 group-hover:bg-teal-500 transition-colors"></span>Production-Grade Architectures</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-teal-500/40 rounded-full mr-3 group-hover:bg-teal-500 transition-colors"></span>CI/CD & Dockerization</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-teal-500/40 rounded-full mr-3 group-hover:bg-teal-500 transition-colors"></span>Type-Safe Backend Systems</li>
             </ul>
           </div>
           <div className="bg-white/5 p-5 rounded-2xl border border-white/5 hover:border-teal-500/20 transition-all">
-            <p className="text-[9px] text-slate-600 mb-3 uppercase tracking-widest font-bold">// Development_Profile</p>
-            <p className="text-xs font-bold text-teal-400 italic font-mono uppercase tracking-tighter">Continuous Learner</p>
-            <p className="text-[10px] text-slate-500 mt-2 uppercase tracking-tighter leading-relaxed">Focused on Scalability & Performance // Always aiming for elegant implementation.</p>
+            <p className="text-[9px] text-slate-600 mb-3 uppercase tracking-widest font-bold">// Academic_Status</p>
+            <p className="text-xs font-bold text-teal-400 italic font-mono uppercase tracking-tighter">BSc (Hons) Computer Science</p>
+            <p className="text-[10px] text-slate-500 mt-2 uppercase tracking-tighter leading-relaxed">Expected Graduation: May 2028 // University of Westminster, London.</p>
           </div>
         </div>
         <p className="text-slate-500 italic border-l-2 border-slate-700 pl-4 py-1 font-mono text-sm text-center md:text-left">
@@ -718,104 +718,110 @@ const App = () => {
     <div className="space-y-6 text-slate-300 pr-2 font-mono text-xs overflow-y-auto max-h-full text-left">
       <div className="border-b border-white/10 pb-4 mb-8">
         <h1 className="text-teal-400 font-bold text-3xl uppercase tracking-tighter">ISHAN MALINDA</h1>
-        <p className="text-slate-500 mt-2 text-[10px] uppercase tracking-widest leading-loose">Near to Church, Anamaduwa | ishanmalindhaims@gmail.com | linkedin.com/in/ishan-malinda-414501318/</p>
+        <p className="text-slate-500 mt-2 text-[10px] uppercase tracking-widest leading-loose">ishanmalindhaims@gmail.com | +94 76 859 4685 | ishanmalinda.dev | linkedin.com/in/ishan-malinda</p>
       </div>
       <div className="space-y-10 leading-relaxed text-justify">
         <section>
-          <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">PROFILE INFO</h3>
-          <p className="text-slate-400 italic leading-relaxed">
-            Highly motivated computer science student at University of westminster(IIT) with strong foundation in Programming languages, System design, Softwere development and Problem solving skills. I’m passionate about Machine learning, Algorithms, creating efficient user-friendly software solutions with committed to continuous learning through real-world projects and independent exploration. Currently seeking an internship opportunity to strengthen my technical expertise, collaborate with industry professionals and contribute value to a forward-thinking tech organisation.
-          </p>
-        </section>
-        <section>
           <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">EDUCATION</h3>
-          <div className="space-y-6">
-            <div className="text-left">
-              <p className="font-bold text-teal-400">Bsc (Hons) Computer Science | University of Westminster ( IIT Sri Lanka ) - Since 2024</p>
-              <div className="mt-3 space-y-3 pl-4 border-l border-white/5">
-                <div>
-                  <p className="text-slate-500 uppercase font-bold text-[10px]">Modules (2 year) :</p>
-                  <p className="text-slate-400 text-[10px] mt-1">Object Oriented Programming, Client - Server Architectures, Database Systems, Software Development Group Project, Algorithms & Data structures, Machine learning & Data mining</p>
-                </div>
-                <div>
-                  <p className="text-slate-500 uppercase font-bold text-[10px]">Modules (1 year) :</p>
-                  <p className="text-slate-400 text-[10px] mt-1">Mathematics for Computing, Software Development ( Python ), Computer Systems Fundamentals, Software Development II (Java ), Trends in Computer Science, Web Design and Development</p>
-                </div>
-              </div>
+          <div className="space-y-6 text-left">
+            <div>
+              <p className="font-bold text-teal-400 text-left">BSc (Hons.) in Computer Science | University of Westminster, London</p>
+              <p className="text-slate-500 text-[10px] mt-1">Expected Graduation: May 2028</p>
             </div>
-            <div className="text-left">
-              <p className="font-bold text-slate-300">Passed Advanced Level(A/L) in Physical Science (Anamaduwa National College) - Since 2023</p>
-              <p className="text-slate-400 text-[10px] mt-1 italic">Chemistry - B | Com. Maths - C | Physics - C</p>
+            <div>
+              <p className="font-bold text-slate-300">GCE Advanced Level - Physical Science (Ana/National College)</p>
+              <p className="text-slate-400 text-[10px] mt-1 italic">Combined Mathematics: B | Physics: B | Chemistry: C (2021 - 2023)</p>
             </div>
           </div>
         </section>
+
         <section>
-          <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">EXPERIENCE (PROJECTS)</h3>
+          <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">WORK EXPERIENCE</h3>
+          <div className="space-y-6 text-left">
+            <div>
+              <p className="font-bold text-teal-400 uppercase tracking-tight">Junior Full-Stack Developer - Trade-Flow</p>
+              <p className="text-slate-500 italic mb-2 text-[10px]">Production Product (2025 - Present)</p>
+              <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
+                <li>Designed and shipped a full-stack trading journal and analytics platform owning React/Vite frontend and Node/Express backend.</li>
+                <li>Implemented JWT authentication, third-party payment processing, and RBAC.</li>
+                <li>Visualised raw financial data using Recharts for real-time P&L dashboards.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">PROJECTS</h3>
           <div className="space-y-8 text-left">
             <div>
-              <p className="font-bold text-teal-400 uppercase tracking-tight">REQRUITA - Advanced interview monitoring platform</p>
-              <p className="text-slate-500 italic mb-2 text-[10px]">Academic project - SDGP (2025-present)</p>
+              <p className="font-bold text-teal-400 uppercase tracking-tight">Production-Grade API & Development System</p>
+              <p className="text-slate-500 italic mb-2 text-[10px]">Multi-stage Docker | CI/CD | Node.js (2026 - Present)</p>
               <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
-                <li>Architected a cross-platform desktop application using Electron and React with Vite.</li>
-                <li>Developed high-performance Dashboard using Next.js, TypeScript and Tailwind CSS.</li>
-                <li>Engineered scalable Backend with Node.js and Express.js.</li>
-                <li>Implemented Secure Authentication using JWT and SQLite/MongoDB dual-database strategy.</li>
-                <li>Developed real-time monitoring engine using WebRTC APIs.</li>
+                <li>Architected reusable Node.js API with 4-layer architecture and multi-stage Docker builds.</li>
+                <li>Automated CI/CD pipelines via GitHub Actions for ESLint, Jest, and Docker pushes.</li>
+                <li>Integrated Arcjet security, Zod validation, and Drizzle ORM for type-safe persistence.</li>
               </ul>
             </div>
             <div>
-              <p className="font-bold text-teal-400 uppercase tracking-tight">Trade-Flow: Smart Trading Assistant Platform</p>
-              <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2025 - present)</p>
+              <p className="font-bold text-teal-400 uppercase tracking-tight">REQRUITA (SDGP) - Anti-Cheating Interview Platform</p>
+              <p className="text-slate-500 italic mb-2 text-[10px]">Electron | WebRTC | MongoDB (2025 - Present)</p>
               <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
-                <li>Architected Trading Journal and Analytics Dashboard using React and Vite.</li>
-                <li>Developed Multi-Module LMS with structured curriculum data architecture.</li>
-                <li>Engineered Secure Backend with Node.js, Express, and JWT authentication.</li>
-                <li>Integrated Interactive Data Visualization using Recharts for profit/performance tracking.</li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-bold text-teal-400 uppercase tracking-tight">Bank Loan Approval & Max Amount Prediction</p>
-              <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2026 - present)</p>
-              <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
-                <li>Developed a dual-case study ML system for loan approval classification and maximum amount regression.</li>
-                <li>Implemented KNN, Naïve Bayes, and Logistic Regression with GridSearchCV, achieving 0.97 recall for risky loans.</li>
-                <li>Performed extensive EDA and data cleaning (outlier removal, mean imputation) on complex financial datasets.</li>
-                <li>Optimized model performance using stratified splits and feature engineering for imbalanced data.</li>
+                <li>Built tamper-resistant Electron app with browser lockdown and live WebRTC video proctoring.</li>
+                <li>Developed scalable Node.js API consumed by both Electron client and Next.js admin panel.</li>
               </ul>
             </div>
             <div>
               <p className="font-bold text-teal-400 uppercase tracking-tight">Macro-Economic Sentiment Tracker</p>
-              <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2026 - present)</p>
+              <p className="text-slate-500 italic mb-2 text-[10px]">Python Scraper | Supabase | Next.js (2026 - Present)</p>
               <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
-                <li>Engineered a 4-tier data pipeline using Python and Playwright for automated scraping of economic calendars.</li>
-                <li>Implemented sentiment logic to compare "Actual" vs "Forecast" results for live market scoring.</li>
-                <li>Developed a high-performance frontend dashboard using Next.js and Tailwind CSS with glassmorphism aesthetics.</li>
-                <li>Integrated Supabase for centralized PostgreSQL storage and Node.js for a secure API bridge.</li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-bold text-teal-400 uppercase tracking-tight">FocusForge: High-Performance Productivity Tool</p>
-              <p className="text-slate-500 italic mb-2 text-[10px]">Individual project (2026 - present)</p>
-              <ul className="space-y-1 list-disc list-inside text-slate-400 text-[10px]">
-                <li>Architected a three-tier desktop application using Electron, React, and Express.</li>
-                <li>Developed precision focus timer with real-time tracking and non-distracting UI.</li>
-                <li>Engineered local persistent storage using JSON File System for session logs.</li>
-                <li>Implemented automated session history tracking with timestamps and duration analysis.</li>
+                <li>Engineered 4-tier automated data pipeline using Python/Playwright and Supabase.</li>
+                <li>Visualised real-time global market mood via high-impact macroeconomic indicators.</li>
               </ul>
             </div>
           </div>
         </section>
+
         <section>
-           <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">TECHNICAL SKILLS</h3>
-           <div className="space-y-2 text-slate-400 text-left text-[10px] font-mono">
-              <p><span className="text-teal-400 uppercase font-bold tracking-tighter">Front-End:</span> HTML, Tailwind CSS, JavaScript, React.js, Electron.js, TypeScript, JavaFx</p>
-              <p><span className="text-teal-400 uppercase font-bold tracking-tighter">Back-End:</span> Java, Python, Node.js, Express.js, REST API, MySQL, MongoDB, PostgreSQL</p>
-              <p><span className="text-teal-400 uppercase font-bold tracking-tighter">Tools:</span> Git & Github, Figma, Notion, AWS, ORMs</p>
-           </div>
+          <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">TECHNICAL SKILLS</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-400 text-[10px] font-mono text-left">
+            <div>
+              <p className="text-teal-400 uppercase font-bold tracking-tighter mb-1">// Frontend</p>
+              <p>React.js, Next.js, TypeScript, Tailwind CSS, Vite, Recharts, ElectronJS</p>
+            </div>
+            <div>
+              <p className="text-teal-400 uppercase font-bold tracking-tighter mb-1">// Backend</p>
+              <p>Node.js, Express.js, REST API, JWT Auth, Zod, Drizzle ORM</p>
+            </div>
+            <div>
+              <p className="text-teal-400 uppercase font-bold tracking-tighter mb-1">// Databases</p>
+              <p>PostgreSQL, MongoDB, Supabase</p>
+            </div>
+            <div>
+              <p className="text-teal-400 uppercase font-bold tracking-tighter mb-1">// DevOps & Cloud</p>
+              <p>Docker, Kubernetes, GitHub Actions, CI/CD, Linux, Vercel, Render</p>
+            </div>
+          </div>
         </section>
+
+        <section>
+          <h3 className="text-purple-400 font-bold mb-4 text-xs tracking-[0.3em] uppercase border-l-2 border-purple-500/30 pl-4">REFERENCE</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[10px] font-mono text-left">
+            <div>
+              <p className="text-teal-400 font-bold">Mr. Chamal Vimukthi Bandara</p>
+              <p className="text-slate-500 text-[8px]">Senior Software Engineer, Cassparking Factory</p>
+              <p className="text-slate-500 text-[8px]">chamalvimukthi@gmail.com</p>
+            </div>
+            <div>
+              <p className="text-teal-400 font-bold">Mr. Nishara Milinda Sampath</p>
+              <p className="text-slate-500 text-[8px]">Head of Procurement, HEINEKEN Lanka Ltd</p>
+              <p className="text-slate-500 text-[8px]">nishara.sampath@heineken.com</p>
+            </div>
+          </div>
+        </section>
+
         <div className="pt-10 flex flex-col sm:flex-row gap-4">
-          <a href="/CV_Resume.pdf" download="Ishan_Malinda_CV.pdf" className="inline-block bg-teal-600/20 text-teal-400 border border-teal-500/50 px-6 py-3 rounded-xl hover:bg-teal-600/30 transition-all font-bold text-[10px] uppercase tracking-widest text-center flex-1">
-            ./download_full_cv.sh
+          <a href="./CV_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Ishan_Malinda_CV.pdf" className="inline-block bg-teal-600/20 text-teal-400 border border-teal-500/50 px-6 py-3 rounded-xl hover:bg-teal-600/30 transition-all font-bold text-[10px] uppercase tracking-widest text-center flex-1">
+            ./download_updated_cv.sh
           </a>
         </div>
         <p className="text-slate-600 text-center uppercase tracking-widest text-[9px] py-10 border-t border-white/5 mt-10">
@@ -828,6 +834,16 @@ const App = () => {
   const projectsSection = (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10 text-left">
       {[
+        {
+          title: "API BLUEPRINT",
+          subtitle: "Production-Grade Ecosystem",
+          desc: "Enterprise-ready Node.js API template featuring automated CI/CD, multi-stage Docker builds, and advanced security-as-code integration.",
+          image: "/projects/api-blueprint.png",
+          tags: ["Docker", "GitHub Actions", "Node.js", "Arcjet", "Drizzle"],
+          github: "https://github.com/Ishan-malinda/JS-Ecosystem-Production-Grade-Blueprint",
+          liveUrl: null,
+          features: ["Multi-Stage Docker", "Automated CI/CD", "Security-as-Code"]
+        },
         {
           title: "TRADE-FLOW",
           subtitle: "Smart Analytics",
