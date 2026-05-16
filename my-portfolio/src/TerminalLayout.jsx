@@ -7,7 +7,6 @@ import backgroundMusic from './assets/music.mp3';
 
 const TerminalLayout = ({ 
   children, 
-  activeFile, 
   setActiveFile, 
   openApps, 
   setOpenApps, 
