@@ -835,6 +835,26 @@ const App = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10 text-left">
       {[
         {
+          title: "GROWVIA SOLUTIONS",
+          subtitle: "Grow Your Brand Smarter",
+          desc: "A premium digital growth studio specializing in custom web development, branding, and performance marketing to help ambitious businesses scale.",
+          image: "/projects/growvia.png",
+          tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+          github: "https://github.com/Ishan-malinda/Growvia-Solutions",
+          liveUrl: "https://growviasolutions.vercel.app/",
+          features: ["Custom Development", "Premium Branding", "Growth Marketing"]
+        },
+        {
+          title: "VETPHARMA",
+          subtitle: "Science You Can Stand Behind",
+          desc: "Leading veterinary pharmaceutical manufacturer in Sri Lanka, providing high-quality medicines and supplements for livestock and pets since 2012.",
+          image: "/projects/vetpharma.png",
+          tags: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+          github: "https://github.com/Ishan-malinda/vetpharma-web",
+          liveUrl: "https://www.vetpharma.lk/",
+          features: ["GMP Certified", "R&D Driven", "Animal Healthcare"]
+        },
+        {
           title: "API BLUEPRINT",
           subtitle: "Production-Grade Ecosystem",
           desc: "Enterprise-ready Node.js API template featuring automated CI/CD, multi-stage Docker builds, and advanced security-as-code integration.",
