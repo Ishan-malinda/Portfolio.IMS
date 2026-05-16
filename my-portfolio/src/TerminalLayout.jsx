@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import BackgroundCanvas from './BackgroundCanvas';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { FaHome, FaPowerOff, FaSync, FaMusic, FaVolumeUp, FaVolumeMute, FaTerminal } from 'react-icons/fa';
 import profilePic from './assets/profile.png';
 import backgroundMusic from './assets/music.mp3';
@@ -49,7 +49,7 @@ const TerminalLayout = ({
   if (isClosed) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center font-mono text-teal-500 p-4 text-center">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <Motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <p className="text-xl md:text-2xl mb-4">➜ System Halted.</p>
           <p className="text-sm text-slate-500 uppercase tracking-widest">Connection terminated safely</p>
           <button 
@@ -58,7 +58,7 @@ const TerminalLayout = ({
           >
             REBOOT SYSTEM
           </button>
-        </motion.div>
+        </Motion.div>
       </div>
     );
   }
@@ -84,7 +84,7 @@ const TerminalLayout = ({
       <footer className="h-12 bg-slate-900/80 backdrop-blur-2xl border-t border-white/5 fixed bottom-0 left-0 right-0 z-[100] flex items-center px-4 justify-between select-none">
         <div className="flex items-center space-x-2 h-full">
           {/* Start Button */}
-          <motion.div 
+          <Motion.div 
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowStartMenu(!showStartMenu)}
             className={`flex items-center space-x-2 px-4 py-1.5 rounded-lg cursor-pointer transition-all border ${
@@ -93,7 +93,7 @@ const TerminalLayout = ({
           >
             <FaTerminal className={`text-sm ${showStartMenu ? 'text-slate-900' : 'text-teal-400'}`} />
             <span className="text-xs font-bold uppercase tracking-tighter">Ishan_OS</span>
-          </motion.div>
+          </Motion.div>
 
           <div className="h-6 w-px bg-white/10 mx-2"></div>
 
@@ -105,7 +105,7 @@ const TerminalLayout = ({
               { id: 'game', icon: '🎮', label: 'Game' }
             ].map(app => (
               openApps.includes(app.id) && (
-                <motion.div 
+                <Motion.div 
                   key={app.id}
                   layoutId={`taskbar-${app.id}`}
                   onClick={() => {
@@ -121,7 +121,7 @@ const TerminalLayout = ({
                   <span className="text-sm">{app.icon}</span>
                   <span className="text-[9px] font-bold uppercase tracking-widest hidden lg:block">{app.label}</span>
                   <div className={`w-1 h-1 rounded-full ${activeWindow === app.id ? 'bg-teal-400 shadow-[0_0_5px_#2dd4bf]' : 'bg-slate-600'}`}></div>
-                </motion.div>
+                </Motion.div>
               )
             ))}
           </div>
@@ -148,14 +148,14 @@ const TerminalLayout = ({
         <AnimatePresence>
           {showStartMenu && (
             <>
-              <motion.div 
+              <Motion.div 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 exit={{ opacity: 0 }} 
                 onClick={() => setShowStartMenu(false)} 
                 className="fixed inset-0 z-[140] bg-black/20 backdrop-blur-sm" 
               />
-              <motion.div 
+              <Motion.div 
                 initial={{ y: 20, opacity: 0, scale: 0.95 }} 
                 animate={{ y: 0, opacity: 1, scale: 1 }} 
                 exit={{ y: 20, opacity: 0, scale: 0.95 }}
@@ -176,7 +176,7 @@ const TerminalLayout = ({
                     { icon: <FaSync />, label: 'Reboot System', action: () => window.location.reload(), color: 'text-blue-400' },
                     { icon: <FaPowerOff />, label: 'Power Off', action: () => setIsClosed(true), color: 'text-red-400' }
                   ].map((item, i) => (
-                    <motion.div 
+                    <Motion.div 
                       key={i} 
                       whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
                       onClick={item.action} 
@@ -184,10 +184,10 @@ const TerminalLayout = ({
                     >
                       <span className={`text-lg ${item.color || 'text-slate-400'} group-hover:scale-110 transition-transform`}>{item.icon}</span>
                       <span className="text-xs text-slate-300 font-medium group-hover:text-white transition-colors">{item.label}</span>
-                    </motion.div>
+                    </Motion.div>
                   ))}
                 </div>
-              </motion.div>
+              </Motion.div>
             </>
           )}
         </AnimatePresence>
