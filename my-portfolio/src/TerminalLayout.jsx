@@ -9,7 +9,6 @@ const TerminalLayout = ({
   children, 
   setActiveFile, 
   openApps, 
-  setOpenApps, 
   activeWindow, 
   setActiveWindow,
   isMinimized,
