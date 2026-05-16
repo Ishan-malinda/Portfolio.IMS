@@ -517,14 +517,16 @@ const App = () => {
                   View Site
                 </a>
               )}
-              <a 
-                href={project.github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex-1 bg-white/5 text-white border border-white/10 text-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all font-mono"
-              >
-                Source Code
-              </a>
+              {project.github && (
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-white/5 text-white border border-white/10 text-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all font-mono"
+                >
+                  Source Code
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -840,7 +842,7 @@ const App = () => {
           desc: "A premium digital growth studio specializing in custom web development, branding, and performance marketing to help ambitious businesses scale.",
           image: "/projects/growvia.png",
           tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
-          github: "https://github.com/Ishan-malinda/Growvia-Solutions",
+          github: null,
           liveUrl: "https://growviasolutions.vercel.app/",
           features: ["Custom Development", "Premium Branding", "Growth Marketing"]
         },
@@ -850,7 +852,7 @@ const App = () => {
           desc: "Leading veterinary pharmaceutical manufacturer in Sri Lanka, providing high-quality medicines and supplements for livestock and pets since 2012.",
           image: "/projects/vetpharma.png",
           tags: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
-          github: "https://github.com/Ishan-malinda/vetpharma-web",
+          github: null,
           liveUrl: "https://www.vetpharma.lk/",
           features: ["GMP Certified", "R&D Driven", "Animal Healthcare"]
         },
