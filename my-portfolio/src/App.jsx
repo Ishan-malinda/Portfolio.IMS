@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import TerminalLayout from './TerminalLayout';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { 
   FaGithub, 
   FaLinkedin, 
@@ -166,7 +166,7 @@ const TerminalWindow = ({
   };
 
   return (
-    <motion.div 
+    <Motion.div 
       drag
       dragMomentum={false}
       initial={{ scale: 0.9, opacity: 0 }}
@@ -228,9 +228,9 @@ const TerminalWindow = ({
               <div className="mb-6 flex items-center text-sm">
                 <span className="text-green-400 mr-2 font-bold">➜</span>
                 <span className="text-slate-500 mr-2">~</span>
-                <motion.span key={activeFile} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-blue-400">
+                <Motion.span key={activeFile} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-blue-400">
                   {activeFile === 'home' ? 'init --welcome' : `cat ${activeFile}`}
-                </motion.span>
+                </Motion.span>
               </div>
               
               <div className="relative z-10 min-h-fit overflow-visible">
@@ -293,7 +293,7 @@ const TerminalWindow = ({
           </svg>
         </div>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 
@@ -314,7 +314,7 @@ const App = () => {
         { id: 'notes', icon: <FaStickyNote className="text-yellow-400" />, label: 'Notes', color: 'bg-yellow-500/10' },
         { id: 'game', icon: <FaGamepad className="text-purple-400" />, label: 'HackerRun', color: 'bg-purple-500/10' },
       ].map((app) => (
-        <motion.div
+        <Motion.div
           key={app.id}
           whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.05)' }}
           onClick={() => {
@@ -330,7 +330,7 @@ const App = () => {
           <span className="text-[10px] font-bold text-white/70 tracking-wide text-center drop-shadow-md font-mono uppercase">
             {app.label}
           </span>
-        </motion.div>
+        </Motion.div>
       ))}
     </div>
   );
@@ -455,7 +455,7 @@ const App = () => {
 
         {gameState === 'playing' && (
           <div className="flex-1 relative">
-            <motion.div
+            <Motion.div
               animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 180, 270, 360] }}
               transition={{ repeat: Infinity, duration: 2 }}
               onClick={hitTarget}
@@ -463,7 +463,7 @@ const App = () => {
               className="absolute w-10 h-10 bg-purple-500/30 rounded-lg cursor-pointer shadow-[0_0_25px_#a855f7] border border-purple-400/50 flex items-center justify-center text-[10px] font-bold text-white select-none backdrop-blur-md"
             >
               <div className="w-1 h-1 bg-white rounded-full animate-ping"></div>
-            </motion.div>
+            </Motion.div>
           </div>
         )}
       </div>
@@ -550,7 +550,7 @@ const App = () => {
   
     if (submitted) {
       return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-teal-400 font-mono space-y-4">
+        <Motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-teal-400 font-mono space-y-4">
           <p className="text-xl font-bold uppercase tracking-tighter">➜ Transmission Successful</p>
           <p className="text-slate-400 text-sm leading-relaxed">
             Thank you for reaching out! I've prepared the email draft for you. <br/>
@@ -560,7 +560,7 @@ const App = () => {
           <button onClick={() => setSubmitted(false)} className="mt-6 text-xs text-teal-400 hover:text-white border border-teal-500/30 px-4 py-2 rounded-lg hover:bg-teal-500/10 transition-all font-bold uppercase tracking-widest">
             ./reset_form.sh
           </button>
-        </motion.div>
+        </Motion.div>
       );
     }
   
@@ -629,7 +629,7 @@ const App = () => {
 
   const home = (
     <div className="flex flex-col items-center justify-center py-10 text-center space-y-10">
-      <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="space-y-4">
+      <Motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tighter uppercase font-sans">
           HI, I AM <span className="text-teal-400 underline decoration-teal-500/30 underline-offset-8">ISHAN MALINDA</span>
         </h1>
@@ -640,7 +640,7 @@ const App = () => {
           <span className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-ping"></span>
           <span className="text-[9px] text-slate-500 font-mono uppercase tracking-[0.2em]">_ STATUS: READY FOR COMMAND...</span>
         </div>
-      </motion.div>
+      </Motion.div>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 pt-12 border-t border-white/5 w-full max-w-2xl">
         {[
@@ -650,7 +650,7 @@ const App = () => {
           { id: 'resume', icon: <FaFileAlt className="text-2xl text-purple-400" />, label: 'CV' },
           { id: 'contact', icon: <FaEnvelope className="text-2xl text-teal-400" />, label: 'MSG' }
         ].map((item) => (
-          <motion.div
+          <Motion.div
             key={item.id}
             whileHover={{ y: -5, scale: 1.05 }}
             onClick={() => setActiveFile(item.id)}
@@ -660,7 +660,7 @@ const App = () => {
               {item.icon}
             </div>
             <span className="text-[8px] font-bold text-slate-500 group-hover:text-teal-400 transition-colors uppercase tracking-[0.2em] font-mono">{item.label}</span>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
     </div>
@@ -917,7 +917,7 @@ const App = () => {
           features: ["Precision Timer", "Session History", "Desktop Native"]
         }
       ].map((p, i) => (
-        <motion.div 
+        <Motion.div 
           key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
           className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-teal-500/30 transition-all group flex flex-col shadow-2xl h-fit"
         >
@@ -946,7 +946,7 @@ const App = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       ))}
     </div>
   );
@@ -968,12 +968,12 @@ const App = () => {
           { label: 'YouTube', icon: <FaYoutube />, url: 'https://www.youtube.com/@Strategic_Club1', color: 'hover:text-red-500' },
           { label: 'Instagram', icon: <FaInstagram />, url: 'https://www.instagram.com/wf_ims/', color: 'hover:text-pink-500' }
         ].map((link, i) => (
-          <motion.a key={i} href={link.url} target="_blank" rel="noopener noreferrer" whileHover={{ y: -8, scale: 1.15 }} className="flex flex-col items-center group cursor-pointer">
+          <Motion.a key={i} href={link.url} target="_blank" rel="noopener noreferrer" whileHover={{ y: -8, scale: 1.15 }} className="flex flex-col items-center group cursor-pointer">
             <div className={`text-6xl text-slate-700 transition-all duration-300 ${link.color} group-hover:drop-shadow-[0_0_20px_rgba(45,212,191,0.3)]`}>
               {link.icon}
             </div>
             <span className="text-[9px] font-mono mt-4 text-slate-700 group-hover:text-teal-400 tracking-[0.2em] uppercase font-bold transition-colors">{link.label}</span>
-          </motion.a>
+          </Motion.a>
         ))}
       </div>
     </div>
@@ -1013,7 +1013,7 @@ const App = () => {
               setIsMinimized={setIsMinimized}
             >
               <AnimatePresence mode="wait">
-                <motion.div
+                <Motion.div
                   key={activeFile}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -1022,7 +1022,7 @@ const App = () => {
                   className="w-full h-full"
                 >
                   {renderContent()}
-                </motion.div>
+                </Motion.div>
               </AnimatePresence>
             </TerminalWindow>
           )}
@@ -1031,7 +1031,7 @@ const App = () => {
         {/* Notes Window */}
         <AnimatePresence>
           {openApps.includes('notes') && (
-            <motion.div
+            <Motion.div
               drag
               dragMomentum={false}
               initial={{ x: 100, y: 300, opacity: 0 }}
@@ -1041,14 +1041,14 @@ const App = () => {
               className={`pointer-events-auto absolute ${activeWindow === 'notes' ? 'z-50' : 'z-20'}`}
             >
               <NotesApp />
-            </motion.div>
+            </Motion.div>
           )}
         </AnimatePresence>
 
         {/* Game Window */}
         <AnimatePresence>
           {openApps.includes('game') && (
-            <motion.div
+            <Motion.div
               drag
               dragMomentum={false}
               initial={{ x: 800, y: 200, opacity: 0 }}
@@ -1058,13 +1058,13 @@ const App = () => {
               className={`pointer-events-auto absolute ${activeWindow === 'game' ? 'z-50' : 'z-20'}`}
             >
               <HackerGame />
-            </motion.div>
+            </Motion.div>
           )}
         </AnimatePresence>
         {/* Project Details Window */}
         <AnimatePresence>
           {selectedProject && (
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -1077,7 +1077,7 @@ const App = () => {
                   onClose={() => setSelectedProject(null)} 
                 />
               </div>
-            </motion.div>
+            </Motion.div>
           )}
         </AnimatePresence>
 
